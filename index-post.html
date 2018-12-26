@@ -286,21 +286,21 @@ option = {
 
         <figure class="mbr-figure container">
             <div class="image-block" style="width: 66%;">
-                <div id="main6" style="width: 800px;height:600px;"></div>
+                <div id="main7" style="width: 800px;height:600px;"></div>
                 <script type="text/javascript">
                     // 基于准备好的dom，初始化echarts实例
-                    var myChart = echarts.init(document.getElementById('main6'));
+                    var myChart = echarts.init(document.getElementById('main7'));
 var data = { //标准参数
     id: 'multipleThree',
     title: '中国儿童因二手烟死亡年龄分布',
-    legend: ['5岁以下（不含5岁）', '5-14岁（不含14岁）'],
+    legend: [ '5-14岁（不含14岁）','5岁以下（不含5岁）'],
     barWidth:30,
     yAxis: ['2016', '2010', '2006', '2005', '2000', '1995', '1990'],
     xAxis: [
-  [ 2866.234712,5821.27933, 9187.574442, 10575.22738, 23271.75335, 45291.88035, 71685.87126],
-    [-344.119889,-550.9105069, -625.2311551, -734.6373972, -1650.388891, -2477.153324, -2540.095361, ]
+        [-344.12,-550.91, -625.23, -734.64, -1650.39, -2477.15, -2540.10 ],
+        [2866.23,5821.28, 9187.57, 10575.23, 23271.75, 45291.88, 71685.87]
     ],
-    color: ['#0f7699', '#c33531'],
+    color:  [ '#c33531','#0f7699'],
 }
 
 
@@ -310,9 +310,9 @@ option = {
         text: data.title,
         left: 20,
         textStyle: {
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: 500,
-            color: '#414957'
+            color: '#000000'
         },
         top: 12
     },
@@ -336,9 +336,9 @@ option = {
         },
     },
     legend: {
-        top: 12,
+        top: 20,
         itemGap: 10,
-        itemWidth: 10,
+        itemWidth: 18,
         itemHeight: 10,
         data: data.legend
     },
@@ -349,9 +349,10 @@ option = {
         y2: 5,
         containLabel: true
     },
-    xAxis: {
-        show: false
-    },
+    xAxis:
+    {show: false},
+        
+     
     yAxis: [{
         type: 'category',
         axisLine: {
@@ -364,8 +365,8 @@ option = {
             show: true,
             interval: '0',
             textStyle: {
-                fontSize: 12,
-                color: '#687284',
+                fontSize:17,
+                color: '#000000',
             },
         },
         data: data.yAxis
@@ -374,16 +375,14 @@ option = {
             name: data.legend[0],
             type: 'bar',
             barWidth: data.barWidth||12,
-            stack: '总量',
+            stack: '人数',
             label: {
                 normal: {
                     show: true,
                     position: 'left',
-                    color: '#687284',
-                    fontSize: '10',
-                    formatter: function(params) {
-                        return params.data * -1;
-                    }
+                    color: '#000000',
+                    fontSize: '14',
+                    formatter: function (value) { return (Math.abs(value.data)); },
                 },
 
             },
@@ -393,13 +392,13 @@ option = {
             name: data.legend[1],
             type: 'bar',
             barWidth: data.barWidth||12,
-            stack: '总量',
+            stack: '人数',
             label: {
                 normal: {
                     show: true,
                     position: 'right',
-                    color: '#687284',
-                    fontSize: '10',
+                    color: '#000000',
+                    fontSize: '14',
                 }
             },
             data: data.xAxis[1]
